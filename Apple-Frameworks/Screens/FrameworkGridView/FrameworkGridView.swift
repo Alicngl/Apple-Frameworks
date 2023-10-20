@@ -9,11 +9,11 @@ import SwiftUI
 
 struct FrameworkGridView: View {
     @StateObject var viewModel = FrameworkGridViewModel()
-    var columns: [GridItem] = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     var body: some View {
         NavigationView{
             ScrollView{
-                LazyVGrid(columns: columns){
+                LazyVGrid(columns:viewModel.columns){
+                    
                     ForEach(MockData.frameworks){ framework in
                        
                             FrameworkTitleView(framework: framework)
